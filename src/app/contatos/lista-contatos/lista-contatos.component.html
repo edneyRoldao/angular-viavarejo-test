@@ -1,0 +1,8 @@
+<div class="card card-default" id="contatos">
+  <h3>Lista de contatos</h3>
+  <hr>
+  <app-item-contato *ngFor="let item of contatos; let i = index"
+                    [contato]="item"
+                    [index]="i">
+  </app-item-contato>
+</div>

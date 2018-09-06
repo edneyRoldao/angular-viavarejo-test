@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-md-6 offset-3">
+    <span class="anchor" id="formulario"></span>
+    <div class="card card-outline-secondary">
+      <div class="card-header">
+        <h3 class="mb-0">Cadastro novo contato</h3>
+      </div>
+      <div class="card-body">
+        <form name="contatoForm"
+              (ngSubmit)="adicionarContato(f)" #f="ngForm" class="form" role="form" autocomplete="off" id="contatoForm" novalidate>
+
+          <!-- NOME -->
+          <div class="form-group row">
+            <label for="nome">Nome</label>
+            <input type="text"
+                   class="form-control"
+                   name="nome"
+                   id="nome"
+                   ngModel
+                   #nomeL="ngModel"
+                   required>
+            <div *ngIf="nomeL.invalid && (nomeL.dirty || nomeL.touched)" class="alert alert-danger">
+              O nome é obrigatório
+            </div>
+          </div>
+
+          <!-- ASSUNTO -->
+          <div class="form-group row">
+            <label for="assunto">Assunto</label>
+            <select id="assunto"
+                    class="form-control"
+                    name="assunto"
+                    (ngModelChange)="onChange($event)"
+                    [(ngModel)]="assunto"
+                    #assuntoL="ngModel"
+                    required>
+              <option value="">Selecione</option>
+              <option *ngFor="let a of assuntos" [ngValue]="a">{{a.nome}}</option>
+            </select>
+            <div *ngIf="assuntoL.invalid && (assuntoL.dirty || assuntoL.touched)" class="alert alert-danger">
+              O assunto é obrigatório
+            </div>
+          </div>
+
+          <!-- TELEFONE -->
+          <div class="form-group row">
+            <label for="telefone">Telefone</label>
+            <input type="text"
+                   class="form-control"
+                   name="telefone"
+                   ngModel
+                   id="telefone">
+          </div>
+
+          <!-- DESCRICAO ASSUNTO -->
+          <div class="form-group row" *ngIf="descricaoAssunto">
+            <input type="text"
+                   class="form-control"
+                   name="descricao-assunto"
+                   [(ngModel)]="descricaoAssunto"
+                   id="descricao-assunto"
+                   disabled>
+          </div>
+
+          <!-- MENSAGEM -->
+          <div class="form-group row">
+            <label for="mensagem">Mensagem</label>
+            <textarea rows="6"
+                      class="form-control"
+                      name="mensagem"
+                      ngModel
+                      maxlength="3000"
+                      #msg="ngModel"
+                      id="mensagem"
+                      required>
+            </textarea>
+            <div *ngIf="msg.invalid && (msg.dirty || msg.touched)" class="alert alert-danger">
+              A mensagem é obrigatória e não pode passar de 3000 caractéres
+            </div>
+          </div>
+
+          <!-- BOTOES -->
+          <div class="form-group row">
+            <div class="col-md-6">
+              <button type="reset" class="btn btn-danger btn-lg btn-block">Limpar</button>
+            </div>
+            <div class="col-md-6">
+              <button type="submit"
+                      class="btn btn-success btn-lg btn-block" [disabled]="!f.form.valid">Enviar</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="col-4"></div>
+</div>

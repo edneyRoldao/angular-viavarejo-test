@@ -1,0 +1,25 @@
+<div id="contatos-lista" class="panel-collapse collapse show" aria-expanded="true" style="">
+  <ul class="list-group pull-down" id="lista">
+    <li class="list-group-item">
+      <div class="row w-100">
+        <div class="col-8 col-sm-4 col-md-6 text-center text-sm-left">
+          <span class="fa fa-mobile fa-2x text-success float-right pulse" title="online now"></span>
+          <label class="name lead"> {{ contato.nome }} </label>
+          <br>
+          <span class="fa fa-phone fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="(870) 288-4149"></span>
+          <span class="text-muted small"> {{ contato.telefone }} </span>
+          <br>
+          <span class="fa fa-map-marker fa-fw text-muted" data-toggle="tooltip" title="" data-original-title="5842 Hillcrest Rd"></span>
+          <span class="text-muted"> {{ contato.assunto.nome }} </span>
+          <br>
+          <span class="fa fa-envelope fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+          <span class="text-muted small text-truncate"> {{ contato.assunto.descricao }} </span>
+        </div>
+        <div class="col-4 col-sm-2 col-md-3 text-sm-right">
+          <span class="fa fa-envelope fa-fw text-muted" data-toggle="tooltip" data-original-title="" title=""></span>
+          <span class="text-muted small text-truncate"> {{ contato.mensagem }} </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
